@@ -80,7 +80,7 @@ def get_names(lastname=None):
 
     result['full'] = ', '.join(names)
     result['n_members'] = len(names)
-    print(names)
+    # print(names)
 
     short = []
     for name in names:
