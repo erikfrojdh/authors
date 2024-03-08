@@ -19,7 +19,9 @@ else ifeq (${OSNAME}, Darwin)
 	OS := osx
 endif
 ARCH := $(shell uname -m)
-
+ifeq (${ARCH}, x86_64)
+	ARCH := 64
+endif
 
 default: run
 
