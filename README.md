@@ -4,18 +4,11 @@ Python app that fetches the names of the group members from the official PSI web
 
 ### Setup
 
-Create a conda environment with the dependencies. 
+Running make or make start will create an isolated micromamba installation in .bin and launch the server 
 
 ```
-conda create -n myenv --file=conda/environment.yml
-conda activate myenv
-```
-
-Launch the development server
-
-```
-uvicorn names:app --reload 
-
-# Optionally port and host can be supplied
-uvicorn names:app --reload --port 5000 --host your-hostname
+make # Launch the server in dev mode
+make start #Launch the server as daemon
+make stop 
+make help
 ```

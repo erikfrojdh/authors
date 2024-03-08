@@ -1,6 +1,6 @@
 #Find hostname to run the sever on
 HOST := $(shell hostname)
-PORT := 8000
+PORT := 8200
 
 # Find OS and ARCH to download the correct micromamba
 OSNAME := $(shell uname -s)
@@ -27,13 +27,13 @@ default: run
 clean: ## delete micromamba env
 	rm -rf .bin/
 
-run: .bin/envs/auth ## [DEFAULT] run server 
+dev: .bin/envs/auth ## [DEFAULT] run server id development mode
 	.bin/envs/auth/bin/uvicorn names:app --port ${PORT} --reload --host ${HOST}
 
-start:
+start: .bin/envs/auth ## start server in daemon mode
 	.bin/envs/auth/bin/gunicorn names:app --bind ${HOST}:${PORT} --worker-class uvicorn.workers.UvicornWorker --daemon
 
-.PONY stop:
+stop: ## stop server runnig in daemon mode
 	etc/stop.sh ${PORT}
 
 help: # from compiler explorer
