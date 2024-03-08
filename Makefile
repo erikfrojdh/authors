@@ -1,5 +1,6 @@
 #Find hostname to run the sever on
 HOST := $(shell hostname)
+PORT := 8000
 
 # Find OS and ARCH to download the correct micromamba
 OSNAME := $(shell uname -s)
@@ -27,7 +28,13 @@ clean: ## delete micromamba env
 	rm -rf .bin/
 
 run: .bin/envs/auth ## [DEFAULT] run server 
-	.bin/envs/auth/bin/uvicorn names:app --port 8000 --reload --host ${HOST}
+	.bin/envs/auth/bin/uvicorn names:app --port ${PORT} --reload --host ${HOST}
+
+start:
+	.bin/envs/auth/bin/gunicorn names:app --bind ${HOST}:{PORT} --worker-class uvicorn.workers.UvicornWorker --daemon
+
+.PONY stop:
+	etc/stop.sh ${PORT}
 
 help: # from compiler explorer
 	@grep -E '^[0-9a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-20s\033[0m %s\n", $$1, $$2}'
