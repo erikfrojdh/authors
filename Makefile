@@ -1,5 +1,7 @@
-
+#Find hostname to run the sever on
 HOST := $(shell hostname)
+
+# Find OS and ARCH to download the correct micromamba
 OSNAME := $(shell uname -s)
 ifeq (${OSNAME}, Linux)
 	OS := linux
