@@ -8,8 +8,8 @@ PORT=$1
 echo "stopping gunicorn on port $PORT"
 PIDS=`ps ax | grep gunicorn | grep $PORT | awk '{split($0,a," "); print a[1]}'`
 if [ -z "$PIDS" ]; then
-  echo "no gunicorn deamon on port ${1}"
+  echo "no gunicorn deamon on port ${PORT}"
 else
-#   kill $pid
   echo "killed gunicorn ($PIDS) deamon on port $1"
+  xargs kill <<< "$PIDS"
 fi

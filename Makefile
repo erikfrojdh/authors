@@ -31,7 +31,7 @@ run: .bin/envs/auth ## [DEFAULT] run server
 	.bin/envs/auth/bin/uvicorn names:app --port ${PORT} --reload --host ${HOST}
 
 start:
-	.bin/envs/auth/bin/gunicorn names:app --bind ${HOST}:{PORT} --worker-class uvicorn.workers.UvicornWorker --daemon
+	.bin/envs/auth/bin/gunicorn names:app --bind ${HOST}:${PORT} --worker-class uvicorn.workers.UvicornWorker --daemon
 
 .PONY stop:
 	etc/stop.sh ${PORT}
