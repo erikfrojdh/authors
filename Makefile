@@ -14,7 +14,7 @@ ifeq (${ARCH}, x86_64)
 	ARCH := 64
 endif
 
-default: run
+default: dev
 
 .bin/micromamba: ## download micromamba
 	mkdir -p .bin
