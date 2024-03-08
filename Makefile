@@ -26,7 +26,7 @@ default: run
 .bin/micromamba:
 	mkdir -p .bin
 	cp etc/.mambarc .bin/.mambarc
-	curl -Ls https://micro.mamba.pm/api/micromamba/${OS}-${ARCH}/latest | tar -xv --strip-components=1 -C .bin bin/micromamba
+	curl -Ls https://micro.mamba.pm/api/micromamba/${OS}-${ARCH}/latest | tar -xvj --strip-components=1 -C .bin bin/micromamba
 
 .bin/envs/auth: .bin/micromamba
 	.bin/micromamba --no-env -r ${PWD}/.bin create -f etc/environment.yml
