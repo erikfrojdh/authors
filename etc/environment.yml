@@ -1,0 +1,12 @@
+name: auth
+channels:
+  - conda-forge
+dependencies:
+  - python #until uvicorn supports python 3.11
+  - fastapi
+  - uvicorn
+  - jinja2
+  - requests
+  - bs4
+  # - pandas
+  # - python-multipart
