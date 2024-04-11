@@ -14,6 +14,8 @@ def fetch_from_psi():
     to_fix = {'Lars Erik Fröjd': 'Erik Fröjdh',
               'Maria del Mar Carulla Areste': 'Maria Carulla',
               'Julian Brice Dominique Heymes': 'Julian Heymes',
+              'Carlos Lopez Cuenca': 'Carlos Lopez-Cuenca', 
+              'Khalil Daniel Ferjaoui': 'Khalil Ferjaoui', 
               'Coline Anne-Marie Francine Vascart': 'Coline Vascart'}
 
     url = 'https://www.psi.ch/en/lxn/team'
