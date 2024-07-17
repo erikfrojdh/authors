@@ -21,15 +21,19 @@ def fetch_from_psi():
     url = 'https://www.psi.ch/en/lxn/team'
     page = requests.get(url)
     soup = BeautifulSoup(page.content, "html.parser")
-
     id_tags = ['collapsible-item', 'collapsible-item--2']
     names = []
     for id_tag in id_tags:
         results = soup.find(id=id_tag)
-        groups = results.find_all("div", class_='psi-summary-media-wrapper')
+        # print(results)
+        # groups = results.find_all("div", class_='psi-summary-media-wrapper')
+        "psi-people-reference__name"
+        groups = results.find_all("div", class_="psi-people-reference__name")  
+        # print(groups)
+        # return groups
         for item in groups:
-            res = item.find("strong", class_="content-item__title heading")
-            name = res.getText().strip('\n')
+    #         res = item.find("strong", class_="content-item__title heading")
+            name = item.text.strip('\n')
             name = name.replace('Dr. ', '')
             if name in to_fix:
                 name = to_fix[name]
