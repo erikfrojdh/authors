@@ -21,10 +21,10 @@ def fetch_from_psi():
     url = 'https://www.psi.ch/en/lxn/team'
     page = requests.get(url)
     soup = BeautifulSoup(page.content, "html.parser")
-    id_tags = ['collapsible-item', 'collapsible-item--2']
+    id_tags = ['article__content',]
     names = []
     for id_tag in id_tags:
-        results = soup.find(id=id_tag)
+        results = soup.find(class_=id_tag)
         # print(results)
         # groups = results.find_all("div", class_='psi-summary-media-wrapper')
         "psi-people-reference__name"
