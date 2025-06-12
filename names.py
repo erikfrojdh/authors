@@ -16,7 +16,9 @@ def fetch_from_psi():
               'Julian Brice Dominique Heymes': 'Julian Heymes',
               'Carlos Lopez Cuenca': 'Carlos Lopez-Cuenca', 
               'Khalil Daniel Ferjaoui': 'Khalil Ferjaoui', 
-              'Coline Anne-Marie Francine Vascart': 'Coline Vascart'}
+              'Coline Anne-Marie Francine Vascart': 'Coline Vascart',
+              'Alice Francesca Mazzoleni': 'Alice Mazzoleni',
+              'Jonathan Franklin Mulvey': 'Jonathan Mulvey',}
 
     url = 'https://www.psi.ch/en/lxn/team'
     page = requests.get(url)
